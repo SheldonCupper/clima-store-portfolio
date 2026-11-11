@@ -15,7 +15,7 @@ function stub<T extends object>(target: T, key: keyof T, replacement: unknown) {
   restorers.push(() => { Reflect.set(target, key, previous) })
 }
 const password = 'SenhaDeTeste!123'
-const profile = { id: 1, name: 'Cliente Teste', email: 'cliente@gmail.com', phone: '34992562467', cpf: '01234567890', emailVerifiedAt: new Date('2026-01-01T00:00:00Z') }
+const profile = { id: 1, name: 'Cliente Teste', email: 'cliente@gmail.com', phone: '11000000000', cpf: '01234567890', emailVerifiedAt: new Date('2026-01-01T00:00:00Z') }
 let hash = ''
 let savedEnv: NodeJS.ProcessEnv
 before(async () => {

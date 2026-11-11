@@ -16,7 +16,7 @@ function stub<T extends object>(target: T, method: keyof T, implementation: (...
   Reflect.set(target, method, implementation)
   restorers.push(() => { Reflect.set(target, method, original) })
 }
-const profile = { id: 1, name: 'Cliente Teste', email: 'cliente@gmail.com', phone: '34992562467', cpf: '01234567890', emailVerifiedAt: null }
+const profile = { id: 1, name: 'Cliente Teste', email: 'cliente@gmail.com', phone: '11000000000', cpf: '01234567890', emailVerifiedAt: null }
 const password = 'SenhaFicticia!123'
 let account: CustomerAccount
 let savedEnv: NodeJS.ProcessEnv
@@ -76,7 +76,7 @@ test('cadastro salva hash bcrypt e perfil normalizado; não retorna hash nem tok
     assert.equal(select.passwordHash, undefined)
     return { ...profile, sessionVersion: 0 }
   })
-  const result = await call('POST', '/api/customer/register', { ...profile, name: '  Cliente Teste  ', email: '  CLIENTE@GMAIL.COM ', phone: '34 99256-2467', password })
+  const result = await call('POST', '/api/customer/register', { ...profile, name: '  Cliente Teste  ', email: '  CLIENTE@GMAIL.COM ', phone: '11 00000-0000', password })
   assert.equal(result.status, 201)
   assert.equal(saved.email, profile.email)
   assert.equal(saved.phone, profile.phone)

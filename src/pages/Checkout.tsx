@@ -420,7 +420,7 @@ function Checkout() {
                     onBlur={() => touchCustomerField('phone')}
                     aria-invalid={Boolean(touchedCustomerFields.phone && customerErrors.phone)}
                     aria-describedby="checkout-phone-help"
-                    placeholder="34 99256-2467"
+                    placeholder="11 00000-0000"
                   />
                   <span id="checkout-phone-help" className={touchedCustomerFields.phone && customerErrors.phone ? 'checkout-field-error' : 'checkout-field-help'}>
                     {touchedCustomerFields.phone && customerErrors.phone ? customerErrors.phone : 'Informe o DDD e o telefone (10 ou 11 números).'}

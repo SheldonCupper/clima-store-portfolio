@@ -101,7 +101,7 @@ export default function CustomerAuth({ register = false }: { register?: boolean 
             <div className="customer-form-row">
               <div className="customer-field">
                 <label htmlFor="customer-phone">Telefone com DDD</label>
-                <input id="customer-phone" type="tel" autoComplete="tel-national" maxLength={13} placeholder="34 99256-2467" value={form.phone} onChange={e => setField('phone', formatPhone(e.target.value))} onPaste={e => { e.preventDefault(); setField('phone', formatPhone(e.clipboardData.getData('text'))) }} required />
+                <input id="customer-phone" type="tel" autoComplete="tel-national" maxLength={13} placeholder="11 00000-0000" value={form.phone} onChange={e => setField('phone', formatPhone(e.target.value))} onPaste={e => { e.preventDefault(); setField('phone', formatPhone(e.clipboardData.getData('text'))) }} required />
                 {attempted && fieldErrors.phone && <small className="customer-error">{fieldErrors.phone}</small>}
               </div>
               <div className="customer-field">

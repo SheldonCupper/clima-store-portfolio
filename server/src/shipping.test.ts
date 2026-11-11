@@ -264,17 +264,17 @@ function mockOrderTransaction(options: { changedProduct?: Partial<Product>; rese
 test('CPF e telefone descartam letras, limitam dígitos e formatam sem perder zero inicial', () => {
   assert.equal(cpfDigits('012.345.678-90'), '01234567890')
   assert.equal(cpfDigits('abc01234567890123456789'), '01234567890')
-  assert.equal(formatPhone('34 99256 - 2467'), '34 99256-2467')
-  assert.equal(formatPhone('(34) 3256-2467'), '34 3256-2467')
-  assert.equal(formatPhone('349925624671234567'), '34 99256-2467')
+  assert.equal(formatPhone('11 00000 - 0000'), '11 00000-0000')
+  assert.equal(formatPhone('(11) 0000-0000'), '11 0000-0000')
+  assert.equal(formatPhone('110000000001234567'), '11 00000-0000')
 })
 
 test('CPF, telefone e Gmail inválidos são recusados antes de cotar ou gravar', async () => {
   const fetchMock = mock.method(globalThis, 'fetch', async () => { throw new Error('Não deve cotar') })
   const invalidCustomers = [
     ...['', '1234567890', '123456789012', '1234567890a', '123.456.789-00', 12345678900, null].map(cpf => ({ cpf })),
-    ...['', '349925624', '349925624671', '34abc992562467', 34992562467, null].map(phone => ({ phone })),
-    ...['gabriel brito', 'cliente@hotmail.com', 'cliente@gmail.com.br', 'cliente@gmail.com.evil',
+    ...['', '110000000', '110000000001', '11abc000000000', 11000000000, null].map(phone => ({ phone })),
+    ...['cliente ficticio', 'cliente@hotmail.com', 'cliente@gmail.com.br', 'cliente@gmail.com.evil',
       'cliente@@gmail.com', 'cliente gmail@gmail.com', '.cliente@gmail.com', 'cliente..teste@gmail.com',
       '@gmail.com', 'cliente@gmail.com\n.evil', null, {}].map(email => ({ email })),
   ]
@@ -290,7 +290,7 @@ test('CPF, telefone e Gmail inválidos são recusados antes de cotar ou gravar',
 
 test('dados válidos são normalizados antes da busca e gravação do cliente', async () => {
   stubMethod(prisma.customerAccount, 'findUnique', async () => ({ id: 7, sessionVersion: 0, verificationRequired: false, emailVerifiedAt: null, ...orderBody.customer, email: 'cliente.teste+loja@gmail.com' }))
-  for (const phone of ['34 99256 - 2467', '(34) 3256-2467']) {
+  for (const phone of ['11 00000 - 0000', '(11) 0000-0000']) {
     const calls = mockOrderTransaction()
     const result = await post('/api/orders', {
       ...orderBody,
