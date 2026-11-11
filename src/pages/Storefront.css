@@ -1,0 +1,469 @@
+.clima-store { --clima-primary: #07566e; --clima-secondary: #249a78; --clima-on-primary: #fff; --clima-ink: #19313c; --clima-muted: #73828a; background: #fff; color: var(--clima-ink); }
+.clima-store button, .clima-store input, .clima-store select { font: inherit; }
+.clima-store button { -webkit-tap-highlight-color: transparent; }
+.clima-store button:focus-visible, .clima-store a:focus-visible, .clima-store input:focus-visible, .clima-store select:focus-visible, .clima-store summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--clima-secondary) 75%, white); outline-offset: 4px; }
+.clima-header { position: sticky; top: 0; z-index: 20; box-shadow: 0 5px 18px #17364106; }
+.clima-header-content { min-height: 105px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+.clima-brand { gap: 10px; }
+.clima-brand .store-logo { width: 64px; height: 64px; }
+.clima-brand > span { display: flex; flex-direction: column; gap: 4px; }
+.clima-brand strong { color: var(--clima-ink); font: 800 17px 'Manrope', sans-serif; white-space: nowrap; letter-spacing: -.7px; }
+.clima-brand strong b { color: var(--clima-primary); }
+.clima-brand small { color: var(--clima-muted); font-size: 8px; letter-spacing: 2.2px; font-weight: 700; }
+.clima-search { display: flex; align-items: center; flex: 1; max-width: 390px; height: 46px; gap: 12px; padding-left: 15px; background: #f3f6f6; border: 1px solid #e4ebeb; border-radius: 11px; color: var(--clima-muted); }
+.clima-search input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; font-size: 12px; color: var(--clima-ink); }
+.clima-search button { width: 42px; height: 40px; display: grid; place-items: center; flex-shrink: 0; border: 0; border-radius: 9px; background: transparent; color: var(--clima-primary); }
+.clima-header-actions { display: flex; align-items: center; gap: 20px; }
+.clima-header-actions > button, .clima-header-help { display: flex; align-items: center; gap: 8px; border: 0; padding: 0; background: transparent; color: var(--clima-primary); white-space: nowrap; }
+.clima-header-actions > button > span, .clima-header-help span { display: block; text-align: left; font-size: 11px; color: var(--clima-ink); font-weight: 700; }
+.clima-header-actions small { display: block; color: var(--clima-muted); font-size: 9px; font-weight: 400; margin-top: 4px; }
+.clima-cart-action { position: relative; }
+.clima-cart-action > b { position: absolute; top: -9px; left: 15px; min-width: 16px; height: 16px; display: grid; place-items: center; border-radius: 100%; background: var(--clima-secondary); color: white; font-size: 9px; border: 2px solid white; }
+.clima-mobile-menu { display: none; background: transparent; border: 0; padding: 0; color: var(--clima-primary); }
+.clima-nav { border-top: 1px solid #edf1f2; background: white; }
+.clima-nav > .container { display: flex; align-items: center; justify-content: space-between; gap: 26px; min-height: 50px; }
+.clima-departments-button { display: flex; align-items: center; gap: 9px; padding: 10px 13px; border: 0; border-radius: 8px; color: var(--clima-primary); background: color-mix(in srgb, var(--clima-primary) 7%, white); font-size: 11px !important; font-weight: 700 !important; white-space: nowrap; }
+.clima-nav-links { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 22px; font-size: 11px; white-space: nowrap; }
+.clima-nav-links a { padding: 16px 0; border-bottom: 2px solid transparent; }
+.clima-nav-links a:hover, .clima-nav-links a.active { border-color: var(--clima-secondary); color: var(--clima-primary); }
+.clima-nav-location { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--clima-muted); white-space: nowrap; }
+.clima-menu-backdrop { position: fixed; inset: 0; background: #112f3b50; border: 0; z-index: 21; }
+.clima-mega-menu { position: absolute; left: 0; right: 0; top: 100%; z-index: 22; background: white; border-radius: 0 0 18px 18px; padding: 28px; box-shadow: 0 25px 55px #0e2f3b22; max-height: calc(100dvh - 150px); overflow-y: auto; }
+.clima-mega-heading, .clima-mega-bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.clima-mega-heading h2 { margin: 7px 0 20px; font-size: 22px; }
+.clima-mega-heading > button { border: 0; background: #f3f6f6; border-radius: 50%; width: 32px; height: 32px; display: grid; place-items: center; }
+.clima-mega-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.clima-mega-categories > a { display: flex; align-items: center; gap: 13px; border: 1px solid #e9eeee; border-radius: 10px; padding: 15px; color: var(--clima-primary); font-size: 13px; }
+.clima-mega-categories > a > span { flex: 1; }
+.clima-mega-categories small { display: block; color: var(--clima-muted); margin-top: 5px; font-size: 10px; }
+.clima-mega-categories > a:hover { background: #f5f9f9; }
+.clima-mega-bottom { border-top: 1px solid #e9eeee; margin-top: 22px; padding-top: 20px; color: var(--clima-primary); font-size: 12px; }
+.clima-mega-bottom a { display: flex; align-items: center; gap: 10px; }
+.clima-eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--clima-secondary); font-size: 10px; font-weight: 800; letter-spacing: 1.7px; line-height: 1.6; }
+.clima-eyebrow i { width: 6px; height: 6px; background: var(--clima-secondary); border-radius: 50%; }
+.clima-hero { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; min-height: 440px; border-radius: 22px; overflow: hidden; background: #eef5f4; }
+.clima-hero-copy { padding: 46px 42px; display: flex; align-items: flex-start; flex-direction: column; }
+.clima-hero h1 { margin: 20px 0 18px; font: 800 clamp(32px, 3.1vw, 46px)/1.12 'Manrope', sans-serif; letter-spacing: -1.8px; max-width: 470px; }
+.clima-hero-copy > p { max-width: 390px; color: #607980; font-size: 13px; line-height: 1.85; margin: 0 0 26px; }
+.clima-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; border: 0; border-radius: 8px; background: var(--clima-primary); color: var(--clima-on-primary); padding: 14px 20px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.clima-button:hover { filter: brightness(1.08); }
+.clima-button:disabled { opacity: .45; cursor: not-allowed; }
+.clima-hero-controls { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: auto; padding-top: 30px; }
+.clima-banner-dots { display: flex; gap: 7px; align-items: center; }
+.clima-banner-dots button { width: 7px; height: 7px; border: 0; border-radius: 10px; padding: 0; background: #b9cdcd; transition: width .2s; }
+.clima-banner-dots button.active { width: 26px; background: var(--clima-primary); }
+.clima-arrow-controls { display: flex; align-items: center; gap: 10px; font-size: 9px; font-weight: 600; color: #68818a; }
+.clima-arrow-controls button { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #d8e6e4; border-radius: 50%; background: transparent; color: var(--clima-primary); }
+.clima-hero-visual { position: relative; min-height: 100%; overflow: hidden; background: var(--clima-primary); }
+.clima-hero-visual > img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center; }
+.clima-hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #17444f20, #032e4380); pointer-events: none; }
+.clima-hero-tone-1::after { background: linear-gradient(135deg, #142d3d20, #082c5188); }
+.clima-hero-tone-2::after { background: linear-gradient(135deg, #174d3e20, #073d2d88); }
+.clima-visual-orbit { position: absolute; width: 300px; height: 300px; border: 1px solid #ffffff45; border-radius: 50%; top: -180px; right: -80px; z-index: 1; box-shadow: 0 0 0 40px #ffffff12, 0 0 0 80px #ffffff08; }
+.clima-hero-note { position: absolute; bottom: 40px; left: 30px; right: 30px; width: fit-content; max-width: calc(100% - 60px); display: flex; align-items: center; gap: 13px; padding: 16px 20px; border: 1px solid #ffffff60; border-radius: 13px; background: #ffffffeb; backdrop-filter: blur(10px); z-index: 1; }
+.clima-note-symbol { display: flex; align-items: center; gap: 0; color: var(--clima-primary); }
+.clima-note-symbol svg + svg { color: var(--clima-secondary); }
+.clima-hero-note strong { display: block; color: #19313c; font-size: 14px; }
+.clima-hero-note small { color: #6c8089; font-size: 10px; margin-top: 4px; display: block; }
+.clima-visual-caption { position: absolute; right: 24px; top: 24px; color: white; font-size: 8px; font-weight: 700; letter-spacing: 1.3px; z-index: 1; }
+.clima-benefits { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 30px; padding-bottom: 30px; border-bottom: 1px solid #e9efef; gap: 22px; }
+.clima-benefits > div { display: flex; align-items: center; gap: 13px; }
+.clima-benefits svg { color: var(--clima-primary); width: 24px; flex-shrink: 0; stroke-width: 1.5; }
+.clima-benefits strong { display: block; font-size: 11px; font-weight: 700; }
+.clima-benefits small { display: block; font-size: 10px; color: #8a989c; margin-top: 5px; }
+.clima-section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 22px; }
+.clima-section-heading h2 { font: 800 26px/1.25 'Manrope', sans-serif; letter-spacing: -.8px; margin: 8px 0 0; }
+.clima-section-heading p { color: var(--clima-muted); font-size: 12px; margin: 9px 0 0; }
+.clima-text-link, .clima-showcase-actions > a { color: var(--clima-primary); display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.clima-category-section { padding-top: 48px; padding-bottom: 10px; }
+.clima-category-tiles { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 14px; overflow-x: auto; scrollbar-width: thin; }
+.clima-category-tile { min-width: 150px; min-height: 190px; display: flex; flex-direction: column; position: relative; background: #eef5f4; padding: 18px 20px; border-radius: 14px; overflow: hidden; transition: transform .2s; }
+.clima-category-tile:hover { transform: translateY(-3px); }
+.clima-category-tone-1 { background: #eef4fa; }
+.clima-category-tone-2 { background: #f5f4ec; }
+.clima-category-tone-3 { background: #edf5ee; }
+.clima-category-count { color: #85999a; font-size: 8px; letter-spacing: 1.3px; font-weight: 700; }
+.clima-category-illustration { align-self: center; display: grid; place-items: center; width: 85px; height: 85px; margin: 12px 0; color: var(--clima-primary); position: relative; }
+.clima-category-illustration::before { content: ''; width: 90px; height: 90px; background: #ffffff77; border-radius: 50%; position: absolute; }
+.clima-category-illustration svg, .clima-category-illustration img { position: relative; width: 58px; height: 58px; object-fit: contain; }
+.clima-category-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
+.clima-category-label strong { font-size: 12px; text-transform: capitalize; }
+.clima-category-label svg { width: 17px; flex-shrink: 0; }
+.clima-showcase { padding-top: 48px; }
+.clima-showcase-actions { display: flex; gap: 8px; align-items: center; }
+.clima-showcase-actions > a { margin-right: 10px; }
+.clima-showcase-actions > button { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #dce6e6; border-radius: 50%; background: white; color: var(--clima-primary); }
+.clima-showcase-actions > button:disabled { opacity: .3; cursor: default; }
+.clima-product-track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 54px) / 4); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #dce8e7 transparent; padding: 5px 1px 16px; }
+.clima-product-card { min-width: 0; border: 1px solid #e4ebeb; border-radius: 13px; box-shadow: none; display: flex; flex-direction: column; scroll-snap-align: start; background: white; }
+.clima-product-card:hover { border-color: color-mix(in srgb, var(--clima-primary) 30%, white); transform: translateY(-2px); box-shadow: 0 8px 25px #18344c08; }
+.clima-product-picture { position: relative; padding: 20px 16px 12px; background: #fafcfc; height: 200px; }
+.clima-product-image-button { width: 100%; height: 100%; border: 0; padding: 6px; background: transparent; display: block; }
+.clima-product-image-button img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.clima-product-badge { position: absolute; z-index: 1; top: 12px; left: 12px; font-size: 9px; background: #e8f4ed; color: #267a56; border-radius: 4px; padding: 5px 7px; }
+.clima-product-badge.muted { background: #edf0f1; color: #73828a; }
+.clima-product-info { padding: 17px; display: flex; flex: 1; flex-direction: column; }
+.clima-product-category { font-size: 8px; letter-spacing: 1px; color: #93a1a6; text-transform: uppercase; }
+.clima-product-info h3 { font-size: 12px; font-weight: 600; line-height: 1.6; margin: 10px 0 15px; min-height: 39px; }
+.clima-product-info h3 button { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; border: 0; padding: 0; background: transparent; color: var(--clima-ink); text-align: left; line-height: inherit; }
+.clima-price-area { margin-top: auto; }
+.clima-price-area .product-price { display: block; font: 800 23px 'Manrope', sans-serif; letter-spacing: -.8px; color: var(--clima-primary); }
+.clima-price-area > span { display: block; color: #35866a; font-size: 11px; font-weight: 700; margin-top: 4px; }
+.clima-price-area small { font-weight: 400; }
+.clima-product-shipping { display: block; color: #8e9b9f; font-size: 9px; margin: 11px 0 14px; }
+.clima-store .clima-add-button { width: 100%; display: flex; justify-content: center; gap: 8px; background: var(--clima-primary); color: var(--clima-on-primary); border-radius: 7px; margin: 0; padding: 12px 7px; border: 0; font-size: 11px; font-weight: 600; }
+.clima-store .clima-add-button:disabled { opacity: .4; cursor: not-allowed; }
+.clima-consult { display: flex; align-items: center; gap: 24px; padding: 32px 38px; margin-top: 50px; margin-bottom: 48px; background: #eef5f3; border-radius: 16px; }
+.clima-consult-icon { width: 70px; height: 70px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; color: var(--clima-secondary); background: white; }
+.clima-consult > div:nth-child(2) { flex: 1; }
+.clima-consult h2 { margin: 7px 0 7px; font-size: 25px; letter-spacing: -.6px; }
+.clima-consult p { margin: 0; font-size: 12px; color: var(--clima-muted); line-height: 1.7; }
+.clima-footer { background: #12313d; color: #bed0d6; margin-top: 30px; border-top: 4px solid var(--clima-secondary); }
+.clima-footer-intro { padding-top: 58px; padding-bottom: 36px; border-bottom: 1px solid #ffffff20; }
+.clima-footer-intro .clima-eyebrow { color: #a9d9cd; }
+.clima-footer-intro h2 { color: white; font-size: clamp(25px, 2.7vw, 36px); line-height: 1.25; letter-spacing: -.8px; margin: 14px 0 12px; }
+.clima-footer-intro p { margin: 0; font-size: 14px; line-height: 1.8; max-width: 600px; }
+.clima-footer-grid { display: grid; grid-template-columns: 1.3fr .9fr 1.2fr 1.1fr; gap: 36px; padding-top: 44px; padding-bottom: 54px; }
+.clima-footer .clima-brand { gap: 12px; flex-wrap: wrap; }
+.clima-footer .clima-brand .store-logo { width: 76px; height: 76px; }
+.clima-footer .clima-brand strong { color: white; font-size: 17px; }
+.clima-footer .clima-brand strong b { color: white; }
+.clima-footer .clima-brand small { color: #bed0d6; font-size: 8px; }
+.clima-footer h3 { margin: 0 0 22px; color: white; font-size: 15px; font-weight: 700; line-height: 1.5; }
+.clima-footer-grid > div { min-width: 0; }
+.clima-footer-grid > div > a:not(.logo) { display: flex; align-items: center; gap: 10px; font-size: 13px; margin-bottom: 8px; min-height: 36px; line-height: 1.8; overflow-wrap: anywhere; }
+.clima-footer a { transition: color .15s; }
+.clima-footer a:hover { color: white; text-decoration: underline; text-underline-offset: 4px; }
+.clima-footer .logo:hover { text-decoration: none; }
+.clima-footer-brand p { font-size: 13px; line-height: 1.9; margin: 24px 0 18px; max-width: 290px; }
+.clima-footer-social svg { color: #8aceb4; }
+.clima-footer .footer-address { align-items: flex-start !important; }
+.clima-footer .footer-address svg { margin-top: 3px; flex-shrink: 0; }
+.clima-footer-phone-title, .clima-footer-account-title { margin-top: 30px !important; margin-bottom: 16px !important; }
+.clima-footer-faq details { border-bottom: 1px solid #ffffff25; font-size: 13px; line-height: 1.8; }
+.clima-footer-faq summary { cursor: pointer; padding: 13px 0; }
+.clima-footer-faq p { color: #bed0d6; margin: 0 0 16px; }
+.clima-footer-faq p a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+.clima-footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px 28px; border-top: 1px solid #ffffff25; padding-top: 24px; padding-bottom: 30px; font-size: 12px; line-height: 1.8; color: #bed0d6; }
+.clima-footer-credit strong { color: white; font-weight: 600; }
+.clima-whatsapp-float { width: 50px; height: 50px; right: 20px; bottom: 20px; }
+.clima-catalog { padding-top: 25px; padding-bottom: 30px; }
+.clima-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 10px; color: var(--clima-muted); margin-bottom: 35px; }
+.clima-breadcrumb a { color: var(--clima-primary); }
+.clima-catalog-title { display: flex; justify-content: space-between; align-items: flex-end; gap: 25px; margin-bottom: 30px; }
+.clima-catalog-title h1 { font: 800 31px 'Manrope', sans-serif; letter-spacing: -1px; margin: 8px 0; }
+.clima-catalog-title p { margin: 0; font-size: 11px; color: var(--clima-muted); }
+.clima-catalog-controls { display: flex; gap: 12px; align-items: center; }
+.clima-catalog-controls label { display: flex; align-items: center; gap: 10px; color: var(--clima-muted); font-size: 11px; }
+.clima-catalog-controls select { border: 1px solid #e2eaea; border-radius: 7px; padding: 10px 12px; font-size: 11px; background: white; color: var(--clima-ink); }
+.clima-catalog-layout { display: grid; grid-template-columns: 215px minmax(0, 1fr); gap: 30px; }
+.clima-catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.clima-filters { border: 1px solid #e4ebeb; border-radius: 12px; padding: 20px; align-self: start; }
+.clima-filter-heading { display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 20px; }
+.clima-filter-heading > button { display: none; border: 0; background: transparent; }
+.clima-filters fieldset { margin: 0; padding: 20px 0; border: 0; border-top: 1px solid #e9efef; }
+.clima-filters legend { display: contents; font-size: 11px; font-weight: 700; }
+.clima-filters fieldset > a { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; font-size: 11px; color: var(--clima-muted); }
+.clima-filters fieldset > a.selected { color: var(--clima-primary); font-weight: 700; }
+.clima-filters fieldset > a > span { color: #9da9ac; font-size: 9px; }
+.clima-price-inputs { display: flex; gap: 8px; margin-top: 15px; }
+.clima-price-inputs label { display: flex; flex-direction: column; gap: 7px; width: 50%; font-size: 10px; color: var(--clima-muted); }
+.clima-price-inputs input { width: 100%; min-width: 0; padding: 10px 7px; border: 1px solid #dfe7e7; border-radius: 6px; font-size: 11px; }
+.clima-check { display: flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--clima-muted); font-size: 11px; }
+.clima-check input { accent-color: var(--clima-primary); }
+.clima-filter-help { display: flex; flex-direction: column; gap: 8px; padding: 18px; margin-top: 15px; background: #eef5f3; border-radius: 10px; color: var(--clima-primary); font-size: 11px; }
+.clima-filter-help > span, .clima-filter-help b { font-size: 10px; }
+.clima-clear-filters { display: inline-block; margin: 5px 0 10px; font-size: 11px; color: var(--clima-primary); text-decoration: underline; }
+.clima-filter-toggle { display: none; }
+.clima-empty { min-height: 250px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 15px; text-align: center; padding: 30px 20px; color: var(--clima-muted); }
+.clima-empty h2, .clima-empty h3 { color: var(--clima-ink); font-size: 21px; margin: 0; }
+.clima-empty p { font-size: 12px; line-height: 1.7; }
+.clima-loading { padding: 55px 20px; text-align: center; color: var(--clima-muted); font-size: 13px; }
+.clima-dialog { border: 0; padding: 0; max-width: calc(100% - 28px); max-height: calc(100dvh - 40px); border-radius: 16px; color: #19313c; background: white; box-shadow: 0 20px 80px #102d3a33; }
+.clima-dialog::backdrop { background: #102d3a88; backdrop-filter: blur(3px); }
+.clima-dialog-inner { padding: 25px; }
+.clima-dialog-inner > header { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #e8eeee; padding-bottom: 18px; }
+.clima-dialog-inner > header h2 { font-size: 20px; margin: 0; }
+.clima-dialog-inner > header > button { border: 0; background: #f1f5f5; color: #19313c; border-radius: 50%; width: 33px; height: 33px; display: grid; place-items: center; }
+.clima-cart-dialog { position: fixed; inset: 0 0 0 auto; margin: 0 0 0 auto; width: 430px; height: 100dvh; max-height: 100dvh; max-width: 100%; border-radius: 16px 0 0 16px; }
+.clima-cart-dialog .clima-dialog-inner { min-height: 100%; display: flex; flex-direction: column; }
+.clima-cart-items { flex: 1; padding-top: 5px; }
+.clima-cart-item { display: grid; grid-template-columns: 66px minmax(0, 1fr) 25px; gap: 13px; padding: 22px 0; border-bottom: 1px solid #edf1f1; }
+.clima-cart-item > img { width: 66px; height: 76px; object-fit: contain; border: 1px solid #edf1f1; border-radius: 8px; }
+.clima-cart-item > div > strong { display: block; font-size: 12px; line-height: 1.6; }
+.clima-cart-item > div > span { display: block; color: var(--clima-primary); font-size: 12px; font-weight: 700; margin-top: 8px; }
+.clima-quantity { display: inline-flex; align-items: center; gap: 14px; padding: 4px; border: 1px solid #e3ebeb; border-radius: 7px; margin-top: 12px; font-size: 12px; }
+.clima-quantity button { width: 25px; height: 25px; display: grid; place-items: center; border: 0; background: #f2f6f6; border-radius: 4px; color: var(--clima-primary); }
+.clima-quantity button:disabled { opacity: .4; }
+.clima-remove { border: 0; background: transparent; color: #a0afb4; align-self: start; padding: 0; }
+.clima-cart-footer { background: white; color: #19313c; padding-top: 25px; margin-top: auto; }
+.clima-cart-footer > div { display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
+.clima-cart-footer strong { color: var(--clima-primary); font-size: 24px; }
+.clima-cart-footer p { font-size: 10px; color: #85969d; margin: 10px 0 20px; }
+.clima-cart-footer .clima-button { width: 100%; }
+.clima-clear-cart { display: block; margin: 0 0 20px auto; border: 0; background: transparent; color: #85969d; font-size: 10px; text-decoration: underline; }
+.clima-product-dialog { margin: auto; width: 800px; }
+.clima-product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding-top: 25px; }
+.clima-product-detail > img { width: 100%; height: 300px; object-fit: contain; }
+.clima-product-detail h3 { font: 800 24px/1.4 'Manrope', sans-serif; margin: 12px 0; }
+.clima-product-detail small { display: block; font-size: 10px; color: #85969d; }
+.clima-product-detail p { font-size: 12px; line-height: 1.9; color: #6e838c; }
+.clima-product-detail > div > strong { display: block; color: var(--clima-primary); font-size: 28px; margin: 20px 0 7px; }
+.clima-pix-detail { display: block; color: #35866a; font-size: 13px; margin-bottom: 15px; }
+.clima-product-detail .clima-button { margin-top: 20px; }
+@media (max-width: 1100px) { .clima-header-help { display: none; } .clima-nav-location { display: none; } .clima-nav-links { gap: 18px; } .clima-brand strong { font-size: 15px; } .clima-header-content { gap: 20px; } .clima-footer-grid { grid-template-columns: 1fr 1fr; gap: 35px; } }
+@media (max-width: 850px) { .clima-header-content { gap: 16px; } .clima-header-actions > button > span { display: none; } .clima-nav-links { overflow-x: auto; justify-content: flex-start; } .clima-nav > .container { gap: 20px; } .clima-hero-copy { padding: 32px 28px; } .clima-hero h1 { font-size: 33px; letter-spacing: -1px; } .clima-hero-note { left: 20px; bottom: 25px; padding: 13px; } .clima-hero-note strong { font-size: 11px; } .clima-hero-note small { font-size: 9px; } .clima-hero-note svg { width: 20px; } .clima-benefits { grid-template-columns: 1fr 1fr; gap: 24px; } .clima-product-track { grid-auto-columns: calc((100% - 32px) / 3); gap: 16px; } .clima-category-tiles { grid-auto-columns: 180px; } .clima-consult { flex-wrap: wrap; padding: 28px; } .clima-consult .clima-button { margin-left: 94px; } .clima-catalog-layout { grid-template-columns: 180px minmax(0, 1fr); gap: 20px; } .clima-catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .clima-catalog-title { align-items: flex-start; flex-direction: column; } .clima-mega-categories { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) {
+  .clima-header-content { min-height: 0; flex-wrap: wrap; gap: 12px; padding: 12px 0; }
+  .clima-mobile-menu { display: block; }
+  .clima-brand { gap: 7px; }
+  .clima-brand .store-logo { width: 46px; height: 46px; }
+  .clima-brand strong { font-size: 13px; letter-spacing: -.5px; }
+  .clima-brand small { font-size: 6px; letter-spacing: 1.7px; }
+  .clima-header-actions { margin-left: auto; gap: 14px; }
+  .clima-header-actions .account-action { display: flex; }
+  .clima-header-actions > button svg { width: 21px; }
+  .clima-header-actions > button > span { display: none !important; }
+  .clima-cart-action > b { top: -7px; left: 12px; }
+  .clima-search { order: 4; flex-basis: 100%; max-width: none; height: 41px; padding-left: 12px; }
+  .clima-search input { font-size: 11px; }
+  .clima-search > svg { width: 16px; }
+  .clima-nav > .container { min-height: 42px; width: 100%; gap: 15px; padding-left: 14px; }
+  .clima-departments-button { font-size: 0 !important; gap: 0; padding: 7px; }
+  .clima-departments-button > svg:last-child { display: none; }
+  .clima-nav-links { font-size: 10px; gap: 20px; padding-right: 20px; scrollbar-width: none; }
+  .clima-nav-links a { padding: 12px 0; }
+  .clima-hero { margin-top: 18px; grid-template-columns: 1fr; border-radius: 15px; }
+  .clima-hero-copy { padding: 28px 25px 23px; }
+  .clima-eyebrow { font-size: 8px; letter-spacing: 1.2px; }
+  .clima-hero h1 { font-size: 32px; letter-spacing: -1.2px; margin: 16px 0 14px; }
+  .clima-hero-copy > p { font-size: 11px; line-height: 1.9; margin-bottom: 22px; }
+  .clima-button { font-size: 11px; padding: 13px 17px; }
+  .clima-hero-controls { padding-top: 23px; }
+  .clima-hero-visual { min-height: 210px; }
+  .clima-hero-note { left: 18px; bottom: 20px; }
+  .clima-visual-caption { font-size: 6px; top: 20px; right: 18px; }
+  .clima-benefits { gap: 20px 12px; padding: 24px 0; }
+  .clima-benefits > div { gap: 8px; }
+  .clima-benefits svg { width: 20px; }
+  .clima-benefits strong { font-size: 9px; line-height: 1.5; }
+  .clima-benefits small { font-size: 8px; line-height: 1.6; margin-top: 2px; }
+  .clima-section-heading { align-items: flex-start; gap: 14px; }
+  .clima-section-heading h2 { font-size: 22px; }
+  .clima-section-heading p { font-size: 11px; line-height: 1.7; }
+  .clima-text-link { font-size: 9px; margin-top: 24px; }
+  .clima-category-section, .clima-showcase { padding-top: 34px; }
+  .clima-category-tiles { gap: 12px; grid-auto-columns: 160px; padding-bottom: 8px; }
+  .clima-category-tile { padding: 15px; min-height: 180px; }
+  .clima-category-label strong { font-size: 11px; }
+  .clima-showcase-actions { align-self: flex-end; }
+  .clima-showcase-actions > a { display: none; }
+  .clima-showcase-actions > button { width: 28px; height: 28px; }
+  .clima-product-track { grid-auto-columns: 73%; gap: 13px; }
+  .clima-product-picture { height: 185px; }
+  .clima-product-info { padding: 14px; }
+  .clima-consult { gap: 15px; padding: 24px; margin-top: 35px; margin-bottom: 35px; }
+  .clima-consult-icon { width: 48px; height: 48px; }
+  .clima-consult-icon svg { width: 26px; }
+  .clima-consult > div:nth-child(2) { min-width: 150px; }
+  .clima-consult h2 { font-size: 21px; }
+  .clima-consult p { font-size: 10px; }
+  .clima-consult .clima-button { margin-left: 0; width: 100%; }
+  .clima-footer { margin-top: 20px; }
+  .clima-footer-intro { padding-top: 36px; padding-bottom: 28px; }
+  .clima-footer-intro p { font-size: 13px; }
+  .clima-footer-grid { grid-template-columns: minmax(0, 1fr); gap: 34px; padding-top: 32px; padding-bottom: 36px; }
+  .clima-footer-brand p { max-width: none; }
+  .clima-footer .clima-brand .store-logo { width: 64px; height: 64px; }
+  .clima-footer .clima-brand strong { font-size: 16px; }
+  .clima-footer h3 { margin-bottom: 14px; }
+  .clima-footer-bottom { align-items: flex-start; flex-direction: column; padding-bottom: 76px; gap: 8px; }
+  .clima-whatsapp-float { width: 45px; height: 45px; right: 15px; bottom: 15px; }
+  .clima-catalog { padding-top: 20px; }
+  .clima-breadcrumb { margin-bottom: 24px; }
+  .clima-catalog-title h1 { font-size: 26px; }
+  .clima-catalog-controls { width: 100%; justify-content: space-between; }
+  .clima-catalog-controls label { font-size: 10px; gap: 6px; }
+  .clima-catalog-controls select { max-width: 140px; font-size: 10px; }
+  .clima-filter-toggle { display: flex; align-items: center; gap: 7px; font-size: 10px !important; padding: 10px; border-radius: 7px; border: 1px solid #dfe7e7; background: white; }
+  .clima-catalog-layout { grid-template-columns: minmax(0, 1fr); }
+  .clima-filters { display: none; }
+  .clima-filters.open { display: block; }
+  .clima-filter-heading > button { display: block; }
+  .clima-catalog-grid { gap: 10px; }
+  .clima-catalog-grid .clima-product-picture { height: 145px; padding: 12px 8px 6px; }
+  .clima-catalog-grid .clima-product-info { padding: 12px 10px; }
+  .clima-catalog-grid .clima-product-info h3 { font-size: 11px; }
+  .clima-catalog-grid .clima-product-category { font-size: 7px; }
+  .clima-catalog-grid .product-price { font-size: 20px; }
+  .clima-catalog-grid .clima-price-area > span { font-size: 9px; }
+  .clima-catalog-grid .clima-product-shipping { font-size: 8px; }
+  .clima-catalog-grid .clima-add-button { font-size: 9px; min-height: 37px; }
+  .clima-catalog-grid .clima-add-button svg { display: none; }
+  .clima-product-badge { top: 7px; left: 7px; font-size: 8px; }
+  .clima-mega-menu { max-height: calc(100dvh - 145px); width: calc(100% - 20px); padding: 20px; }
+  .clima-mega-heading h2 { font-size: 18px; }
+  .clima-mega-categories { grid-template-columns: 1fr; }
+  .clima-mega-categories > a { font-size: 12px; }
+  .clima-mega-bottom { font-size: 10px; }
+  .clima-dialog-inner { padding: 20px; }
+  .clima-product-detail { grid-template-columns: 1fr; gap: 20px; }
+  .clima-product-detail > img { height: 210px; }
+  .clima-product-detail h3 { font-size: 21px; }
+  .clima-cart-dialog { width: 100%; border-radius: 0; }
+}
+@media (max-width: 360px) { .clima-header-content { gap: 8px; } .clima-brand .store-logo { width: 37px; height: 37px; } .clima-brand strong { font-size: 11px; } .clima-brand small { font-size: 5px; } .clima-header-actions { gap: 10px; } .clima-hero-copy { padding: 24px 20px; } .clima-hero h1 { font-size: 29px; } .clima-product-track { grid-auto-columns: 82%; } }
+@media (prefers-reduced-motion: reduce) { .clima-store *, .clima-store *::before, .clima-store *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+
+.social-icon { display: block; flex-shrink: 0; object-fit: contain; }
+.clima-whatsapp-float { background: transparent; border-radius: 0; box-shadow: none; filter: drop-shadow(0 3px 6px #0003); }
+.clima-whatsapp-float .social-icon { width: 100%; height: 100%; }
+@media (max-width: 600px) {
+  .clima-benefits .social-icon { width: 20px; height: 20px; }
+  .clima-consult-icon .social-icon { width: 26px; height: 26px; }
+}
+
+.clima-product-gallery { min-width: 0; }
+.clima-gallery-main { position: relative; border: 1px solid #e3ebed; border-radius: 10px; background: #fff; }
+.clima-gallery-main > img { display: block; width: 100%; height: 320px; object-fit: contain; border-radius: 10px; }
+.clima-gallery-main > button { position: absolute; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #dce6ed; border-radius: 50%; background: #fffffff0; color: var(--clima-primary); cursor: pointer; }
+.clima-gallery-prev { left: 8px; }
+.clima-gallery-next { right: 8px; }
+.clima-gallery-count { display: block; font-size: 11px; color: var(--clima-muted); margin-top: 12px; }
+.clima-gallery-thumbnails { display: flex; gap: 9px; overflow-x: auto; padding: 10px 3px; }
+.clima-gallery-thumbnails > button { flex-shrink: 0; width: 60px; height: 60px; border: 1px solid #dce6ed; border-radius: 6px; padding: 3px; background: #fff; cursor: pointer; }
+.clima-gallery-thumbnails > button[aria-pressed='true'] { border: 2px solid var(--clima-primary); }
+.clima-gallery-thumbnails img { width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 600px) { .clima-gallery-main > img { height: 240px; } }
+
+/* Compra e navegação: conteúdo legível em qualquer largura. */
+.clima-favorites-nav { display: flex; align-items: center; gap: 7px; color: var(--clima-primary); font-size: 11px; }
+.clima-favorite-button { position: absolute; right: 10px; top: 10px; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #dce6e6; border-radius: 50%; background: white; color: var(--clima-primary); z-index: 2; }
+.clima-product-info h3 a { color: var(--clima-ink); }
+.clima-product-image-button { display: block; }
+.clima-favorites-page, .clima-product-page { padding-top: 30px; padding-bottom: 35px; }
+.clima-favorites-page > p { color: #54717c; line-height: 1.7; margin: 14px 0 30px; }
+.clima-product-page .clima-breadcrumb { flex-wrap: wrap; overflow-wrap: anywhere; }
+.clima-product-page-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; margin-top: 28px; }
+.clima-product-page .clima-product-gallery { min-width: 0; align-self: start; }
+.clima-product-page .clima-gallery-main { height: 460px; border: 1px solid #e3ebee; border-radius: 18px; background: #fafcfc; }
+.clima-product-page .clima-gallery-main > img { height: 100%; border-radius: inherit; }
+.clima-product-page { padding-bottom: 12px; }
+.clima-product-page + .clima-showcase { padding-top: 24px; }
+.clima-product-purchase { min-width: 0; }
+.clima-product-purchase h1 { font-size: clamp(25px, 2.5vw, 36px); line-height: 1.2; margin: 14px 0; overflow-wrap: anywhere; }
+.clima-muted { color: #54717c; font-size: 13px; line-height: 1.8; }
+.clima-product-tools { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.clima-product-tools button { display: flex; align-items: center; gap: 7px; border: 1px solid #dce6e6; border-radius: 8px; padding: 11px; color: var(--clima-primary); background: white; font-size: 12px; }
+.clima-detail-price { background: #f2f7f7; border: 1px solid #dce6e6; border-radius: 12px; padding: 20px; display: grid; gap: 8px; }
+.clima-detail-price strong { font-size: clamp(28px, 3vw, 36px); line-height: 1.15; color: var(--clima-primary); }
+.clima-detail-price-pix { background: #f0f8f3; border-color: #d2e7da; }
+.clima-detail-price-pix strong { color: #16643f; }
+.clima-detail-price-label { font-size: 13px; font-weight: 600; color: #294c3b; }
+.clima-detail-price-saving { font-size: 13px; color: #16643f; font-weight: 600; }
+.clima-detail-price-card { font-size: 15px; color: #2b4652; padding-top: 10px; margin-top: 2px; border-top: 1px solid #d2e7da; }
+.clima-detail-price small { color: #54717c; line-height: 1.6; }
+.clima-product-share-status:empty { margin: 0; }
+.clima-purchase-actions { display: flex; align-items: end; gap: 12px; margin: 20px 0; }
+.clima-purchase-actions label { display: grid; gap: 8px; font-size: 12px; }
+.clima-purchase-actions input { width: 85px; min-height: 44px; padding: 10px; border: 1px solid #ccdce0; border-radius: 8px; }
+.clima-purchase-actions > button { flex: 1; min-height: 46px; }
+.clima-product-freight { margin: 20px 0; padding: 20px; border: 1px solid #dce6e6; border-radius: 12px; }
+.clima-product-freight h2 { display: flex; align-items: center; gap: 9px; font-size: 16px; margin: 0 0 20px; }
+.clima-freight-fields { display: flex; align-items: end; gap: 10px; margin-bottom: 14px; }
+.clima-freight-fields label { display: grid; gap: 7px; font-size: 12px; flex: 1; min-width: 0; }
+.clima-freight-fields input, .clima-freight-fields select { width: 100%; min-height: 44px; border: 1px solid #ccdce0; border-radius: 7px; padding: 8px; background: white; }
+.clima-product-freight > small { color: #54717c; line-height: 1.7; display: block; }
+.clima-freight-options { margin: 18px 0 0; padding: 0; list-style: none; }
+.clima-freight-options li { display: flex; align-items: center; justify-content: space-between; gap: 14px; border-top: 1px solid #dce6e6; padding: 13px 0; font-size: 12px; }
+.clima-freight-options small { display: block; margin-top: 6px; color: #54717c; }
+.clima-freight-options b { white-space: nowrap; }
+.clima-product-information { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; margin-top: 48px; padding-top: 30px; border-top: 1px solid #dce6e6; }
+.clima-product-information h2 { font-size: 20px; }
+.clima-product-information p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
+.clima-product-information dl > div { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid #e6eeee; font-size: 13px; }
+.clima-product-information dd { margin: 0; overflow-wrap: anywhere; }
+.clima-hero { min-height: 310px; }
+.clima-hero-copy { padding: 30px; }
+.clima-hero h1 { font-size: clamp(28px, 3vw, 38px); margin: 15px 0; }
+.clima-hero-controls { padding-top: 18px; }
+.clima-category-tile { min-height: 140px; }
+.clima-store .clima-whatsapp-float { bottom: 84px; }
+@media (max-width: 1100px) { .clima-favorites-nav span { display: none; } .clima-header-help { display: none; } .clima-product-page-grid { gap: 26px; } }
+@media (max-width: 700px) {
+  .clima-product-page-grid, .clima-product-information { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .clima-product-page .clima-gallery-main { height: 300px; }
+  .clima-hero { display: block; min-height: 0; margin-top: 16px; }
+  .clima-hero-copy { padding: 24px; }
+  .clima-hero-visual { display: none; }
+  .clima-hero-copy > p { margin-bottom: 16px; }
+  .clima-hero h1 { max-width: 420px; font-size: 29px; }
+  .clima-benefits { grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 22px; padding-bottom: 20px; }
+  .clima-showcase { padding-top: 28px; }
+  .clima-freight-fields { flex-wrap: wrap; }
+  .clima-freight-fields button { width: 100%; }
+  .clima-header-actions { gap: 13px; }
+  .clima-product-page .clima-breadcrumb { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .clima-product-card:hover, .clima-category-tile:hover { transform: none; } }
+
+.clima-technical-editor { border: 1px solid #dce6e6; border-radius: 12px; padding: 20px; min-width: 0; }
+.clima-technical-editor legend { font-weight: 700; padding: 0 8px; }
+.clima-technical-editor p, .clima-technical-editor small { font-size: 13px; color: #54717c; line-height: 1.7; }
+.clima-technical-editor .admin-form-grid { margin: 18px 0; }
+.clima-technical-filters > label { display: grid; gap: 8px; margin: 15px 0; font-size: 12px; }
+.clima-technical-filters select { max-width: 100%; min-width: 0; min-height: 42px; padding: 8px; border: 1px solid #ccdce0; border-radius: 7px; background: white; color: #19313c; }
+.clima-store .clima-quote-button { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; min-height: 44px; width: 100%; border: 1px solid #cbdce1; border-radius: 8px; background: white; color: var(--clima-primary); cursor: pointer; font-size: 12px; font-weight: 600; }
+.clima-quote-button-wrap { margin-top: 12px; }
+.clima-quote-button-wrap > span { display: block; font-size: 12px; line-height: 1.6; margin-top: 8px; }
+.clima-product-purchase > .clima-quote-button-wrap { margin-bottom: 16px; }
+.clima-quote-page { padding-top: 35px; padding-bottom: 40px; }
+.clima-quote-page > p { max-width: 720px; color: #54717c; line-height: 1.8; }
+.clima-quote-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; margin-top: 30px; }
+.clima-quote-items { list-style: none; padding: 0; margin: 0 0 25px; }
+.clima-quote-item { display: flex; gap: 18px; align-items: start; padding: 22px 0; border-bottom: 1px solid #dce6e6; }
+.clima-quote-item > img { width: 90px; height: 100px; object-fit: contain; border-radius: 8px; background: #f3f7f7; }
+.clima-quote-item > div { flex: 1; min-width: 0; }
+.clima-quote-item strong { font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.clima-quote-item small { display: block; color: #54717c; font-size: 12px; line-height: 1.7; margin-top: 7px; }
+.clima-quote-item label { display: grid; gap: 7px; font-size: 12px; margin-top: 14px; }
+.clima-quote-item input { width: 100px; padding: 10px; border: 1px solid #ccdce0; border-radius: 8px; min-height: 44px; }
+.clima-quote-remove { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #dce6e6; border-radius: 8px; background: white; color: #9b3737; flex-shrink: 0; }
+.clima-quote-summary { align-self: start; min-width: 0; border: 1px solid #dce6e6; background: #f7fafa; padding: 24px; border-radius: 14px; }
+.clima-quote-summary h2 { font-size: 21px; margin: 0 0 16px; }
+.clima-quote-summary p, .clima-quote-summary > small { font-size: 13px; color: #54717c; line-height: 1.8; }
+.clima-quote-summary > label { display: grid; gap: 10px; font-size: 13px; }
+.clima-quote-summary textarea { width: 100%; max-width: 100%; padding: 12px; border: 1px solid #ccdce0; border-radius: 8px; background: white; font: inherit; font-size: 13px; resize: vertical; line-height: 1.7; }
+.clima-quote-summary > .clima-button { width: 100%; margin: 18px 0 10px; flex-wrap: wrap; text-align: center; }
+.clima-quote-summary > .clima-quote-button { margin-top: 16px; }
+.clima-quote-summary > small { display: block; }
+.clima-quote-summary details { margin-top: 18px; font-size: 13px; }
+.clima-quote-summary summary { cursor: pointer; margin-bottom: 14px; }
+@media (max-width: 750px) { .clima-quote-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } .clima-quote-summary { padding: 20px; } .clima-quote-item { gap: 12px; } .clima-quote-item > img { width: 64px; height: 75px; } .clima-technical-editor { padding: 15px; } }
+
+.clima-quote-page > h1 { font: 800 clamp(28px, 3vw, 38px)/1.2 'Manrope', sans-serif; margin: 16px 0; letter-spacing: -.7px; }
+.clima-mega-bottom { flex-wrap: wrap; }
+/* Cores independentes para as duas faixas, configuradas no painel. */
+.main-header.clima-header { background:var(--header-background,#fff); color:var(--header-textColor,#19313c); }
+.clima-header .clima-brand strong { color:var(--header-accentColor,var(--clima-primary)); white-space:normal; overflow-wrap:anywhere; }
+.clima-header .clima-brand small { color:var(--header-textColor); opacity:.8; overflow-wrap:anywhere; }
+.clima-header .clima-search { background:var(--header-searchBackground); color:var(--header-searchTextColor); border-color:color-mix(in srgb,var(--header-searchTextColor) 20%,transparent); }
+.clima-header .clima-search input { color:var(--header-searchTextColor); }
+.clima-header .clima-search input::placeholder { color:var(--header-searchTextColor); opacity:.65; }
+.clima-header .clima-search button { color:var(--header-accentColor); }
+.clima-header .clima-mobile-menu { color:var(--header-textColor); }
+.clima-header .clima-header-actions > button,.clima-header .clima-header-help,.clima-header .clima-favorites-nav { background:var(--header-buttonBackground); color:var(--header-buttonTextColor); border-radius:7px; padding:6px; }
+.clima-header .clima-header-actions > button > span,.clima-header .clima-header-help span,.clima-header .clima-header-actions small { color:var(--header-buttonTextColor); }
+.clima-header .clima-header-actions small { opacity:.8; }
+.clima-header .clima-nav { background:var(--header-navBackground); border-top-color:color-mix(in srgb,var(--header-navTextColor) 15%,transparent); }
+.clima-header .clima-nav-links a,.clima-header .clima-nav-location { color:var(--header-navTextColor); }
+.clima-header .clima-nav-links a:hover,.clima-header .clima-nav-links a.active { color:var(--header-navTextColor); border-color:var(--header-navAccentColor); background:color-mix(in srgb,var(--header-navAccentColor) 12%,transparent); }
+.clima-header .clima-departments-button { background:var(--header-departmentBackground); color:var(--header-departmentTextColor); }
+.clima-header .clima-mega-menu { color:#19313c; }
+.clima-header .clima-nav-links { min-width:0; overflow-x:auto; justify-content:flex-start; }
+.clima-header .clima-brand { min-width:0; max-width:260px; flex-shrink:1; }
+.clima-header .clima-brand > span { min-width:0; }
+.clima-header .clima-header-actions { flex-shrink:0; }
+@media(max-width:650px) { .clima-header .clima-brand { flex:1; max-width:calc(100% - 145px); } .clima-header .clima-header-actions { gap:5px; } .clima-header .clima-header-actions > button,.clima-header .clima-favorites-nav { padding:3px; } }
+.clima-header .clima-header-actions > button > span,.clima-header .clima-header-help span { max-width:140px; overflow:hidden; text-overflow:ellipsis; }
+.clima-header .clima-header-actions > button svg,.clima-header .clima-header-help svg { flex-shrink:0; }

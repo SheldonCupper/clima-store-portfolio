@@ -1,0 +1,40 @@
+.product-lookup { padding: 22px; border: 1px solid #dce6ed; border-radius: 10px; background: #f7fafc; min-width: 0; }
+.product-lookup h2 { font-size: 16px; margin: 0 0 10px; }
+.product-lookup p { font-size: 12px; line-height: 1.8; color: #526a78; }
+.product-lookup-search { display: flex; gap: 12px; align-items: flex-end; }
+.product-lookup-search label { display: grid; flex: 1; gap: 9px; font-size: 12px; min-width: 0; }
+.product-lookup-search button { flex-shrink: 0; }
+.product-lookup-notice { padding: 12px; border-radius: 6px; background: #edf2f6; }
+.product-lookup-result { border-top: 1px solid #dce6ed; margin-top: 20px; padding-top: 20px; }
+.product-lookup-result > a { display: block; font-size: 12px; color: #0876d1; margin: 12px 0; overflow-wrap: anywhere; }
+.product-lookup-result dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.product-lookup-result dt { color: #526a78; font-size: 11px; }
+.product-lookup-result dd { font-size: 13px; margin: 7px 0 0; font-weight: 600; }
+.product-lookup-confirm { display: flex; align-items: center; gap: 10px; font-size: 12px; margin: 18px 0; }
+.product-lookup-confirm input { width: 18px; height: 18px; flex-shrink: 0; }
+@media (max-width: 600px) { .product-lookup { padding: 16px; } .product-lookup-search { align-items: stretch; flex-direction: column; } .product-lookup-result dl { grid-template-columns: 1fr 1fr; } }
+.product-photo-editor { min-width: 0; }
+.product-photo-editor h2 { font-size: 15px; margin: 0 0 10px; }
+.product-photo-editor > p, .product-photo-editor > small { display: block; font-size: 12px; line-height: 1.8; color: #526a78; }
+.product-photo-editor > small { margin-top: 12px; }
+.product-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 16px; margin-top: 20px; }
+.product-photo { min-width: 0; padding: 10px; border: 1px solid #dce6ed; border-radius: 9px; background: #f7fafc; }
+.product-photo > img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border-radius: 5px; }
+.product-photo > strong { display: block; font-size: 11px; margin: 12px 0; }
+.product-photo-controls { display: flex; gap: 5px; }
+.product-photo-controls > button { display: grid; place-items: center; min-width: 32px; flex: 1; height: 36px; padding: 0; border: 1px solid #dce6ed; border-radius: 5px; background: #fff; color: #304d5d; cursor: pointer; }
+.product-photo-controls button:disabled { opacity: .35; cursor: default; }
+@media (max-width: 420px) { .product-photo-grid { grid-template-columns: minmax(0, 1fr); } .product-photo-controls > button { height: 40px; } }
+.product-lookup-search input { width: 100%; min-width: 0; border: 1px solid #dce6ed; border-radius: 6px; padding: 12px; background: #fff; color: #19313c; font: inherit; }
+.product-lookup-search input:focus { outline: 2px solid #0876d130; border-color: #0876d1; }
+.product-lookup-search button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+@media (max-width: 850px) { .product-lookup-search input { font-size: 16px; } }
+.product-lookup-modes { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.product-lookup-modes button { padding: 11px 14px; border: 1px solid #dce6ed; border-radius: 7px; background: #fff; color: #526a78; font-size: 12px; cursor: pointer; }
+.product-lookup-modes button[aria-pressed='true'] { background: #eaf4fd; border-color: #0876d1; color: #0876d1; }
+.product-lookup-sheet label, .product-lookup-order { display: grid; gap: 9px; font-size: 12px; }
+.product-lookup-sheet textarea, .product-lookup-order select { width: 100%; min-width: 0; padding: 12px; border: 1px solid #dce6ed; border-radius: 7px; background: #fff; color: #19313c; font: inherit; }
+.product-lookup-sheet textarea { min-height: 150px; resize: vertical; line-height: 1.8; }
+.product-lookup-sheet-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; }
+.product-lookup-sheet-actions a { color: #0876d1; font-size: 12px; overflow-wrap: anywhere; }
+@media (max-width: 850px) { .product-lookup-sheet textarea, .product-lookup-order select { font-size: 16px; } }

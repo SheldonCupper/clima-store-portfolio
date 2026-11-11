@@ -1,0 +1,9 @@
+# Endereço temporário. Substitua pelo domínio da API quando houver um próprio.
+api.example.com {
+	encode zstd gzip
+	header X-Content-Type-Options nosniff
+	header Referrer-Policy no-referrer
+	@privateFiles path /.env /.env.* /.git/* /prisma/* /server/* /generated/*
+	respond @privateFiles 404
+	reverse_proxy 127.0.0.1:3001
+}

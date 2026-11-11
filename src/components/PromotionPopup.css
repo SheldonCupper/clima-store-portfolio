@@ -1,0 +1,21 @@
+.clima-promotion { box-sizing: border-box; width: min(560px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; border-radius: 20px; overflow: auto; overscroll-behavior: contain; color: #19313c; background: #fff; box-shadow: 0 24px 80px #06182055; }
+.clima-promotion::backdrop { background: #061820b8; }
+.clima-promotion-content { position: relative; }
+.clima-promotion-close { position: absolute; top: 12px; right: 12px; z-index: 1; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #e3e9ec; border-radius: 50%; background: #fff; color: #19313c; cursor: pointer; }
+.clima-promotion-image { display: block; width: 100%; max-height: 42dvh; object-fit: contain; background: #f1f5f6; }
+.clima-promotion-copy { padding: 32px 32px 24px; }
+.clima-promotion-content:not(:has(.clima-promotion-image)) .clima-promotion-copy { padding-top: 68px; background: #f1f7f6; }
+.clima-promotion-eyebrow { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; color: var(--clima-secondary, #249a78); }
+.clima-promotion h2 { margin: 14px 0 0; font-size: clamp(24px, 4vw, 32px); line-height: 1.25; letter-spacing: -.7px; overflow-wrap: anywhere; }
+.clima-promotion p { margin: 16px 0 0; color: #526a78; font-size: 14px; line-height: 1.8; white-space: pre-line; overflow-wrap: anywhere; }
+.clima-promotion-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 24px 32px 32px; border-top: 1px solid #e6ecee; }
+.clima-promotion-actions > a, .clima-promotion-actions > button { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 16px; border: 0; border-radius: 9px; text-align: center; text-decoration: none; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; overflow-wrap: anywhere; }
+.clima-promotion-actions .clima-promotion-primary { background: var(--clima-primary, #07566e); color: var(--clima-on-primary, #fff); }
+.clima-promotion-primary svg { flex-shrink: 0; }
+.clima-promotion-dismiss { background: #edf2f5; color: #304d5d; }
+.clima-promotion :focus-visible { outline: 3px solid #0876d1; outline-offset: -4px; }
+@media (max-width: 600px) {
+  .clima-promotion { border-radius: 14px; }
+  .clima-promotion-copy { padding: 26px 22px 22px; }
+  .clima-promotion-actions { grid-template-columns: minmax(0, 1fr); padding: 20px 22px 24px; gap: 10px; }
+}

@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Build
+dist/
+dist-ssr/
+build/
+
+# Environment
+.env
+server/.env
+.env.*
+!.env.shipping.example
+!.env.accounts.example
+!.env.payments.example
+*.local
+
+# Prisma generated
+/generated/prisma
+generated/
+
+# Uploads
+server/uploads/
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Portfolio / local tooling
+!.env.example
+artifacts/
+playwright-report/
+test-results/
+*.pem
+*.key
+*.dump
+*.backup

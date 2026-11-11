@@ -1,0 +1,27 @@
+[Unit]
+Description=Clima Store API
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=clima-app
+Group=clima-app
+WorkingDirectory=/opt/clima-store/server
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3001
+ExecStart=/usr/local/bin/node /opt/clima-store/server/node_modules/tsx/dist/cli.mjs src/index.ts
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/clima-store/uploads
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,301 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELED
+}
+
+enum PaymentMethod {
+  PIX
+  CREDIT_CARD
+}
+
+enum PaymentStatus {
+  PENDING
+  APPROVED
+  REFUSED
+  CANCELED
+  REFUNDED
+}
+
+model StorefrontSetting {
+  id        String   @id
+  content   Json
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  slug      String    @unique
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  products  Product[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  sku         String   @unique
+  price       Decimal  @db.Decimal(10, 2)
+  pixPrice    Decimal? @db.Decimal(10, 2)
+  stock       Int      @default(0)
+  active      Boolean  @default(true)
+  imageUrl    String?
+  imageUrls   String[] @default([])
+  gtin        String?
+  technicalAttributes Json @default("{}")
+  isService Boolean @default(false)
+  serviceDetails Json @default("{}")
+
+  weightKg Float?
+  heightCm Int?
+  widthCm  Int?
+  lengthCm Int?
+
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  orderItems OrderItem[]
+  reviews ProductReview[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CustomerAccount {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  phone        String
+  cpf          String
+  passwordHash String
+  googleSubject String? @unique
+  emailVerifiedAt DateTime?
+  verificationRequired Boolean @default(false)
+  sessionVersion Int @default(0)
+  reviews ProductReview[]
+  couponClaims CouponClaim[]
+  authTokens CustomerAuthToken[]
+  orders       Order[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model CustomerAuthToken {
+  tokenHash String @id
+  accountId Int
+  account CustomerAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  purpose String
+  sessionVersion Int
+  expiresAt DateTime
+  consumedAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([accountId, purpose])
+}
+
+model Customer {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  phone     String
+  cpf       String    @unique
+  addresses Address[]
+  orders    Order[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Address {
+  id         Int      @id @default(autoincrement())
+  customerId Int
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  cep        String
+  street     String
+  number     String
+  district   String
+  city       String
+  state      String
+  complement String?
+
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CouponClaim {
+  id String @id @default(uuid())
+  couponId String
+  accountId Int
+  claimedAt DateTime @default(now())
+  coupon Coupon @relation(fields: [couponId], references: [id], onDelete: Restrict)
+  account CustomerAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  @@unique([couponId, accountId])
+  @@index([accountId, claimedAt])
+}
+
+model Coupon {
+  id String @id @default(uuid())
+  code String @unique
+  kind String
+  value Decimal @db.Decimal(10, 2)
+  minSubtotal Decimal @default(0) @db.Decimal(10, 2)
+  maxDiscount Decimal? @db.Decimal(10, 2)
+  active Boolean @default(false)
+  deletedAt DateTime?
+  startsAt DateTime?
+  expiresAt DateTime?
+  usageLimit Int?
+  published Boolean @default(false)
+  claims CouponClaim[]
+  usedCount Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders Order[]
+}
+
+model Order {
+  id            Int           @id @default(autoincrement())
+  accountId     Int?
+  account       CustomerAccount? @relation(fields: [accountId], references: [id], onDelete: SetNull)
+  customerId    Int
+  customer      Customer      @relation(fields: [customerId], references: [id])
+  addressId     Int
+  address       Address       @relation(fields: [addressId], references: [id])
+
+  status        OrderStatus   @default(PENDING)
+  paymentMethod PaymentMethod
+  paymentStatus PaymentStatus @default(PENDING)
+  stockRestoredAt DateTime?
+  paymentReviewRequired Boolean @default(false)
+  paymentApprovedAt DateTime?
+  paymentCheckouts PaymentCheckout[]
+  refundRequest OrderRefund?
+
+  couponId String?
+  coupon Coupon? @relation(fields: [couponId], references: [id], onDelete: Restrict)
+  couponCode String?
+  couponReleasedAt DateTime?
+
+  subtotal      Decimal       @db.Decimal(10, 2)
+  shipping      Decimal       @default(0) @db.Decimal(10, 2)
+  discount      Decimal       @default(0) @db.Decimal(10, 2)
+  total         Decimal       @db.Decimal(10, 2)
+
+  shippingServiceId     String?
+  shippingServiceName   String?
+  shippingCompany       String?
+  shippingDeliveryTime  Int?
+
+  items         OrderItem[]
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([accountId, createdAt])
+  @@index([paymentApprovedAt])
+}
+
+model OrderItem {
+  id          Int      @id @default(autoincrement())
+  orderId     Int
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id])
+
+  productName String
+  isService Boolean @default(false)
+  serviceDetails Json @default("{}")
+  sku         String
+  unitPrice   Decimal  @db.Decimal(10, 2)
+  quantity    Int
+  total       Decimal  @db.Decimal(10, 2)
+
+  createdAt   DateTime @default(now())
+}
+
+model PaymentCheckout {
+  id String @id @default(uuid())
+  orderId Int
+  order Order @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  environment String
+  sellerId String
+  amount Decimal @db.Decimal(10, 2)
+  currency String @default("BRL")
+  preferenceId String? @unique
+  checkoutUrl String?
+  expiresAt DateTime
+  lastSyncedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  payments ProviderPayment[]
+  refundRequests OrderRefund[]
+
+  @@unique([orderId, environment])
+}
+
+model ProviderPayment {
+  id String @id @default(uuid())
+  checkoutId String
+  checkout PaymentCheckout @relation(fields: [checkoutId], references: [id], onDelete: Restrict)
+  environment String
+  providerPaymentId String
+  providerStatus String
+  amount Decimal @db.Decimal(10, 2)
+  refundedAmount Decimal @default(0) @db.Decimal(10, 2)
+  paymentType String
+  methodId String
+  providerUpdatedAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([environment, providerPaymentId])
+  @@index([checkoutId])
+}
+
+model OrderRefund {
+  id String @id @default(uuid())
+  orderId Int @unique
+  order Order @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  checkoutId String
+  checkout PaymentCheckout @relation(fields: [checkoutId], references: [id], onDelete: Restrict)
+  environment String
+  sellerId String
+  amount Decimal @db.Decimal(10, 2)
+  status String @default("REQUESTED")
+  requestedBy String
+  confirmedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProductReview {
+  id String @id @default(uuid())
+  productId Int
+  accountId Int
+  rating Int
+  comment String
+  status String @default("PENDING")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  account CustomerAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  @@unique([productId, accountId])
+  @@index([productId, status, createdAt])
+}

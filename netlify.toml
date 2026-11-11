@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build:demo"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+
+# Por padrão, publica a demonstração sem backend.
+# Para a aplicação completa, use build:netlify e configure BACKEND_URL.
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"

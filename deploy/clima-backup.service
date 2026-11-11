@@ -1,0 +1,8 @@
+[Unit]
+Description=Backup PostgreSQL e imagens da Clima
+After=postgresql.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /opt/clima-store/deploy/backup.sh
+UMask=0077

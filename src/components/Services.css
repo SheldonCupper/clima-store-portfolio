@@ -1,0 +1,65 @@
+.clima-services-page { padding-top: 28px; padding-bottom: 64px; }
+.clima-services-hero { border-radius: 20px; padding: clamp(24px,5vw,60px); background: linear-gradient(125deg,#e9f4f5,#f1f2ff); margin: 24px 0; max-width: 100%; }
+.clima-services-hero h1 { font-size: clamp(30px,4vw,48px); line-height: 1.13; max-width: 650px; margin: 16px 0; letter-spacing: -1.2px; }
+.clima-services-hero p { max-width: 650px; line-height: 1.8; }
+.clima-services-hero > div { display:flex; gap: 24px; flex-wrap: wrap; margin-top: 25px; }
+.clima-services-hero span:not(.clima-eyebrow) { display:flex; align-items:center; gap:8px; font-size:13px; }
+.clima-service-filters { display:flex; flex-wrap:wrap; gap:8px; margin:30px 0; }
+.clima-service-filters button { border:1px solid #d9e4e9; padding:10px 16px; background:white; border-radius:30px; cursor:pointer; color:inherit; }
+.clima-service-filters button.active { background:var(--clima-primary); color:var(--clima-on-primary); border-color:var(--clima-primary); }
+.clima-service-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.clima-service-card { min-width:0; border:1px solid #dce6ec; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; background:white; }
+.clima-service-picture { height:200px; background:#eaf3f5; display:flex; align-items:center; justify-content:center; color:var(--clima-primary); position:relative; }
+.clima-service-picture img { width:100%; height:100%; object-fit:cover; }
+.clima-service-picture > span { position:absolute; bottom:12px; left:16px; background:white; border-radius:20px; padding:6px 12px; font-size:12px; }
+.clima-service-copy { padding:24px; flex:1; display:flex; flex-direction:column; gap:12px; }
+.clima-service-copy h2 { font-size:21px; line-height:1.4; margin:0; overflow-wrap:anywhere; }
+.clima-service-copy p { font-size:14px; line-height:1.75; margin:0; white-space:pre-wrap; overflow-wrap:anywhere; }
+.clima-service-facts { padding:0; list-style:none; margin:0; display:grid; gap:8px; font-size:13px; }
+.clima-service-facts li { display:flex; align-items:center; gap:8px; }
+.clima-service-copy details { border-block:1px solid #e5edf0; padding:12px 0; }
+.clima-service-copy summary { cursor:pointer; color:var(--clima-primary); font-size:14px; }
+.clima-service-copy details h3 { font-size:13px; margin:16px 0 6px; }
+.clima-service-price { margin-top:auto; padding-top:16px; display:grid; gap:6px; }
+.clima-service-price strong { font-size:29px; }
+.clima-service-price span,.clima-service-price small { font-size:12px; color:#617a88; }
+.clima-service-copy .clima-button { justify-content:center; width:100%; box-sizing:border-box; white-space:normal; }
+.clima-service-note { margin-top:32px; border:1px solid #dce6ec; border-radius:14px; padding:24px; line-height:1.8; }
+.clima-service-note h2 { margin-top:0; font-size:19px; }
+.admin-services-page { max-width:1300px; margin:auto; padding:32px; }
+.admin-service-intro,.admin-service-editor,.admin-service-list article { border:1px solid #dce6ec; border-radius:14px; background:white; padding:24px; }
+.admin-service-intro { display:flex; gap:18px; line-height:1.7; }
+.admin-service-intro > svg { flex-shrink:0; color:#0879ca; margin-top:6px; }
+.admin-service-intro h2 { margin:0; font-size:20px; }
+.admin-service-intro p { margin:8px 0; font-size:14px; }
+.admin-service-toolbar { display:flex; align-items:flex-end; flex-wrap:wrap; gap:14px; margin:24px 0; }
+.admin-service-toolbar label { flex:1; min-width:160px; }
+.admin-service-toolbar input,.admin-service-editor input:not([type=checkbox]):not([type=file]),.admin-service-editor select,.admin-service-editor textarea { display:block; width:100%; border:1px solid #d5e1eb; border-radius:7px; padding:12px; box-sizing:border-box; background:white; color:inherit; font:inherit; margin-top:8px; }
+.admin-service-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-bottom:28px; }
+.admin-service-list article { display:flex; justify-content:space-between; align-items:center; gap:15px; min-width:0; }
+.admin-service-list h3 { font-size:17px; overflow-wrap:anywhere; }
+.admin-service-list p { font-size:13px; }
+.admin-service-state { border-radius:20px; padding:5px 10px; background:#f0f3f6; font-size:12px; }
+.admin-service-state.active { background:#e6f7ef; color:#08744f; }
+.admin-service-editor { scroll-margin-top:20px; }
+.admin-service-editor > h2 { margin-top:0; }
+.admin-service-editor > p { line-height:1.7; color:#617a88; }
+.admin-service-editor fieldset { border:0; padding:0; margin:0 0 20px; min-width:0; }
+.admin-service-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+.admin-service-fields .wide { grid-column:1/-1; }
+.admin-service-fields label,.admin-service-toolbar label { font-size:13px; font-weight:600; }
+.admin-service-check { display:flex; align-items:center; gap:10px; margin:24px 0 0; }
+.admin-service-upload { display:inline-flex; margin-top:18px; cursor:pointer; }
+.admin-service-upload input { width:1px; height:1px; opacity:0; position:absolute; }
+.admin-service-image { display:flex; align-items:center; gap:15px; margin:18px 0; }
+.admin-service-image img { width:140px; height:110px; object-fit:contain; border:1px solid #dce6ec; border-radius:8px; }
+.admin-service-success { padding:14px; border:1px solid #249a78; background:#f3fcf7; color:#08744f; border-radius:8px; }
+.checkout-service-terms { padding:20px; border:1px solid #dce6ec; border-radius:10px; margin:20px 0; }
+.checkout-service-terms p { line-height:1.7; font-size:14px; white-space:pre-wrap; overflow-wrap:anywhere; }
+.checkout-service-terms label { display:flex; gap:10px; align-items:flex-start; line-height:1.7; }
+.checkout-service-terms input { margin-top:7px; flex-shrink:0; }
+@media(max-width:1050px) { .clima-service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:650px) { .clima-service-grid,.admin-service-list,.admin-service-fields { grid-template-columns:minmax(0,1fr); } .admin-services-page { padding:18px 14px; } .admin-service-intro,.admin-service-editor,.admin-service-list article { padding:18px; } .admin-service-toolbar > button { flex:1; justify-content:center; white-space:normal; } .admin-service-intro { gap:10px; } .clima-service-copy { padding:20px; } }
+.checkout-service-terms .clima-button { background:var(--clima-primary,#0879ca); color:var(--clima-on-primary,#fff); }
+.clima-service-facts li { overflow-wrap:anywhere; }
+.clima-service-facts svg { flex-shrink:0; }
